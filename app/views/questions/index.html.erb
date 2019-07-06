@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<% content_for :title do %>
+TOEIC::HACK | マイページ
+<% end %>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+<link rel="stylesheet" href="top.css" type="text/css">
+
+</head>
+
+<body>
+<%= render "shared/header2" %>
+<div class="contents row" >
+  <% @questions.each do |question| %>
+    <div class="content_post" style="background-image: url(<%= question.image %>);">
+      <%= simple_format(question.text) %>
+    </div>
+  <% end %>
+</div>
+</body>
+</html>

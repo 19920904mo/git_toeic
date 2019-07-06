@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<% content_for :title do %>
+TOEIC::HACK | 回答
+<% end %>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+<link rel="stylesheet" href="top.css" type="text/css">
+
+    
+</head>
+
+<body>
+<%= render "shared/header2" %>
+
+<div class="comments_row" >
+    <% if @question.answers.present? %>
+      <h1><label>回答</label></h1>
+    <% @answers.each do |answer| %>
+    
+      <div class="content_post" >
+         <img src="<%= "#{@question.picture}" %>">
+      <h2><% @question.text %></h2>
+      </div>
+      <div class="comments_row">
+       <h2><%= answer.detail %></h2>
+      </div>
+    <% end %>
+    
+    <% end %>
+</div>
+</body>
+</html>
+

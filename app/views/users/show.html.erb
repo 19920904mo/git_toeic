@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<% content_for :title do %>
+TOEIC::HACK | マイページ
+<% end %>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+<link rel="stylesheet" href="top.css" type="text/css">
+
+</head>
+
+<body>
+<%= render "shared/header2" %>
+
+<div>
+  <% @questions.each do |question| %>
+    <div class="content_post" >
+      <h1><label>質問</label></h1>
+        <img src="<%= "#{question.picture}" %>">
+      <h2><%= question.text %></h2>
+    </div>
+      <div class="content_post" >
+        <% @answers.each do |answer| %>
+        <% if answer.question_id == question.id then %> 
+          <%= form_tag('/answers', method: :post,:multipart => true) do %>
+              <div class="box4">
+              <div class="button">
+                <a href="<%= question.id %>/show" class="btn-circle-border-simple">回答を見る</a>
+              </div>
+              </div>
+          <% end %>
+        <% end %>
+        <% end %>
+  <% end %>
+  <%= paginate @questions %>
+</body>
+</html>

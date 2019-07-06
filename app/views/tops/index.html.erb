@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<% content_for :title do %>
+TOEIC::HACK | TOP
+<% end %>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+<link rel="stylesheet" href="top.css" type="text/css">
+
+    
+</head>
+
+<body>
+    <% if user_signed_in? %>
+    <header>
+      <div class="boxA">
+        <div class="box1">
+            <div class="site">
+                <h1><a href="#">TOEIC::HACK</a></h1>
+            </div>
+        </div>
+    
+        <div class="box2">
+            <nav class="menu">
+            <ul>
+            <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+            <li><a href="/questions/new">質問する</a></li>
+            <li><a href="answers/index">回答する/回答を見る</a></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <% else %>
+    <header>
+      <div class="boxA">
+        <div class="box1">
+            <div class="site">
+                <h1><a href="#">TOEIC::HACK</a></h1>
+            </div>
+        </div>
+    
+        <div class="box2">
+            <nav class="menu">
+            <ul>
+            <li><a href="introductions#index">イントロダクション</a></li>
+            <li><a href="inquiries#index">お問い合わせ</a></li>
+            <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+            <li><%= link_to "登録", new_user_registration_path, class: 'post' %></li>
+            </ul>
+            </nav>
+        </div>
+    </div>
+    <% end %>
+    </header>
+<div class="contents">
+    <div class="box3">
+        <div class="subtitle">
+           <h1>Listening</h1>
+        </div>
+    </div>
+    <div class="boxB">
+        <div class="box4">
+            <div class="button">
+            <a href="part1s" class="btn-circle-border-simple">Part1</a>
+            </div>
+        </div>
+    
+        <div class="box5">
+            <div class="button">
+            <a href="part2s" class="btn-circle-border-simple">Part2</a>
+            </div>
+        </div>
+    
+        <div class="box6">
+            <div class="button">
+            <a href="part3and4s" class="btn-circle-border-simple">Part3、4</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="box7">
+        <div class="subtitle">
+           <h1>Reading</h1>
+        </div>
+    </div>
+    
+    <div class="box8">
+        <div class="button">
+        <a href="grammars" class="btn-circle-border-simple">文法</a>
+        
+        </div>
+    </div>
+</div>
+   <footer>
+        <div class="box9">
+            <div class="copyright">
+                <div class="push"></div>
+            <p>Copyright &copy; 2019 Masato Okawa</p>
+            </div>
+        </div>
+    </footer>
+
+<body>
+</html>

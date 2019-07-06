@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<% content_for :title do %>
+TOEIC::HACK | 質問
+<% end %>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+<link rel="stylesheet" href="top.css" type="text/css">
+
+    
+</head>
+
+<body>
+<%= render "shared/header2" %>
+
+<div class="contents_row">
+  <%= form_tag('/questions', method: :post,:multipart => true) do %>
+      <h1><label>投稿する</label></h1>
+</div>
+
+<div class="pictures_row">
+    <input type="file" name="picture">
+</div>
+<div class="comments_row">
+    <h1><label>コメント</label></h1>
+</div>
+<div class="inputs_row">
+    <textarea name="text" placeholder="文章は任意入力" rows="10" cols="50" style="border:1px gray solid"></textarea><br>
+    <input type="submit" value="SENT">
+</div>
+<% end %>
+
+</body>
+</html>

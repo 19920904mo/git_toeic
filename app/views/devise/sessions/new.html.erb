@@ -1,0 +1,54 @@
+<head>
+<% content_for :title do %>
+TOEIC::HACK | ログイン
+<% end %>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+<link rel="stylesheet" href="top.css" type="text/css">
+
+    
+</head>
+<body>
+  <%= render "shared/header1" %>
+<div class="box4">
+<h2>ログイン</h2>
+</div>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="box4">
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+</div>
+
+<div class="box4">
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+</div>
+
+
+  <% if devise_mapping.rememberable? %>
+  <div class="box4">
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  </div>
+  <% end %>
+
+<div class="box4">
+  <div class="actions">
+    <div class="button">
+    <%= f.submit "ログイン" %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="box4">
+<%= render "devise/shared/links" %>
+</div>
+
+</body>
